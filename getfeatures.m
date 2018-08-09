@@ -6,6 +6,10 @@ rr_fs = 4;
 
 hrvaxis = 0.25:0.25:length(hrv)/rr_fs;
 
+for j = 1:5
+[~,edgeidx_hrv(j)] = min(abs(hrvaxis - ones(1,length(hrvaxis))*stage(j)));
+end
+
 if visual1 ==1
 figure,
 subplot(4,3,1)
@@ -19,7 +23,13 @@ end
 % [imf,~] = emd(hrv);
 % hrv_detrend= sum(imf,2); %detrend hrv
 % or use the detrend hrv??
-hrv_detrend = detrend(hrv);
+% hrv_detrend = detrend(hrv);
+hrv_detrend = [detrend(hrv(1:edgeidx_hrv(2)-1)),...
+    detrend(hrv(edgeidx_hrv(2):edgeidx_hrv(3)-1)),...
+    detrend(hrv(edgeidx_hrv(3):edgeidx_hrv(4)-1)),...
+    detrend(hrv(edgeidx_hrv(4):edgeidx_hrv(5)-1)),...
+    detrend(hrv(edgeidx_hrv(5):end)),...
+    ];
 
 if visual1 ==1
 subplot(4,3,2)
@@ -302,7 +312,7 @@ MFE1 = MFE(1,:);MFE2 = MFE(2,:);MFE3 = MFE(3,:);MFE4 = MFE(4,:);MFE5 = MFE(5,:);
 % create categorical array
 for j = 1:5
 [~,edgeidx(j)] = min(abs(timeaxis - ones(1,length(timeaxis))*stage(j)));
-[~,edgeidx_hrv(j)] = min(abs(hrvaxis - ones(1,length(hrvaxis))*stage(j)));
+% [~,edgeidx_hrv(j)] = min(abs(hrvaxis - ones(1,length(hrvaxis))*stage(j)));
 end
 Y = discretize(timeaxis,[timeaxis(edgeidx),timeaxis(end)]);
 Y_hrv = discretize(hrvaxis,[hrvaxis(edgeidx_hrv),hrvaxis(end)]);

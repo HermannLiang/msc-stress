@@ -40,11 +40,11 @@ para.F_over = 10;
 para.N_winl = 250;
 para.N_incre = 10;
 % input subject number, output features.
-for subjectno = 10:10
+for subjectno = 1:10
 [feat{1,subjectno},feat_names,cate_feat{1,subjectno},cate_hrv{1,subjectno}] = getfeatures(subjectno,hrv{subjectno},stage{subjectno},para,vis);
 disp('Extracted features from subject ' + string(subjectno))
 end
-% save('ECGfeatures');
+save('ECGfeatures');
 %standardizing: remove the median values from rest stage ??
 %
 %Selecting features: analysis of variance, p-test, anova, GA, 
