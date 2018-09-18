@@ -1,2 +1,5 @@
-sub = 1:17:2046;
+sub = 8:16:1964;
 sub = fliplr(sub);
+sub = sub';
+score = 1:length(sub);
+table = [sub,score'];

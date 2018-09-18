@@ -1,6 +1,6 @@
 function [MSE] = multiScaleEntropy(data,depth)
 %calculates Multiscale entropy; Kim and Andre PAMI 2008
-r = 0.2*std(data);
+r = 0.15*std(data);
 M_max = 2;
 MSE = zeros(1,depth);
 
@@ -9,7 +9,7 @@ if (length(data)/depth)<20
 end
 for i = 1:depth
     temp =  sampenc(multiScale(data,i),M_max,r);
-    MSE(i) = temp(2);
+    MSE(i) = temp(2);  %2???
 end
 
 function scaledVect = multiScale(vect,factorOf)

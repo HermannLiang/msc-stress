@@ -62,4 +62,4 @@ SendTextSoundEnable = false
 ViewerMode = Plain
 AutoConnect = false
 AutoDisconnect = false
-WindowPosition = 511,212,687,480
+WindowPosition = 648,165,687,480

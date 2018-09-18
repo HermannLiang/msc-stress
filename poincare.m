@@ -61,38 +61,39 @@ y_new = rri_rotated(2,:);
 sd1 = sqrt(var(y_new));
 sd2 = sqrt(var(x_new));
 
+% %%%%%%%%%%%%%%%%
 % %% Fit ellipse
-% % For fitting the ellipse we're using the _new vectors because we don't wan't any non-physiological
-% % intervals to influence the ellise and SD1/2 metrics.
+% For fitting the ellipse we're using the _new vectors because we don't wan't any non-physiological
+% intervals to influence the ellise and SD1/2 metrics.
 % 
-% % Ellipse radii
+% Ellipse radii
 % r_x = sd2_factor * sd2;
 % r_y = sd1_factor * sd1;
 % 
-% % Ellipse center
+% Ellipse center
 % c_x = mean(x_new);
 % c_y = mean(y_new);
 % 
-% % Ellipse parametric equation
+% Ellipse parametric equation
 % t = linspace(0, 2*pi, 200);
 % xt = r_x * cos(t) + c_x;
 % yt = r_y * sin(t) + c_y;
 % 
-% % Rotate the ellipse back to the old coordinate system
+% Rotate the ellipse back to the old coordinate system
 % ellipse_old = rotation_matrix(-alpha) * [xt; yt];
 % 
-% %% Lines for ellipse axes
+% % Lines for ellipse axes
 % ellipse_center_new = [c_x; c_y];
 % 
-% % Create the lines in the new coordinate system
+% Create the lines in the new coordinate system
 % sd1_line_new = [0, 0; -sd1, sd1] + [ellipse_center_new, ellipse_center_new];
 % sd2_line_new = [-sd2, sd2; 0, 0] + [ellipse_center_new, ellipse_center_new];
 % 
-% % Rotate back to the old system
+% Rotate back to the old system
 % sd1_line_old = rotation_matrix(-alpha) * sd1_line_new;
 % sd2_line_old = rotation_matrix(-alpha) * sd2_line_new;
 % 
-% %% Plotting
+% % Plotting
 % plot_data.name = 'RR Interval Poincare Plot';
 % plot_data.x_orig = x_old;
 % plot_data.y_orig = y_old;
@@ -105,10 +106,11 @@ sd2 = sqrt(var(x_new));
 % if (should_plot)
 %     figure('Name', plot_data.name);
 %     plot_poincare_ellipse(gca, plot_data);
+%     plot(plot_data);
 % end
 % 
 % %% Helper functions
-% 
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 % Creates a 2D rotation matrix
 function rotation_mat = rotation_matrix(theta)

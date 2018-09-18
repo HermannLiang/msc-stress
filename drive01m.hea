@@ -1,4 +1,0 @@
-drive01m 1 15.5 61499
-drive01m.mat 16+192 1000/mV 16 0 -30 -16389 8 ECG
-#Creator: wfdb2mat
-#Source: record drivedb/drive01

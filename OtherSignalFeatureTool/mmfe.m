@@ -1,6 +1,6 @@
 %% ============== Function: Multivariate multiscale fuzzy entropy ==============
 
-function FuzzEnt = tc_mmfe(dat,m,tau,r,order,scale_max)
+function FuzzEnt = mmfe(dat,m,tau,r,order,scale_max)
 
 % input
 % dat = multivariate time series data(column vectors)
