@@ -67,7 +67,7 @@ The following table summarized the classification accuracies of different models
 
 We observed the following:
 
-* Sequential feature selection enjoys the highest accuracy, at the cost of computation time
+* Sequential feature selection scores the highest accuracy, at the cost of computation time
 * Dimensionality reduction via PCA is a good compromise between accuracy and efficiency
 * LSTM network accurately predict the labels of unseen data.
 * Training the LSTM directly with HRV series only achieved 78.73% accuracy.
