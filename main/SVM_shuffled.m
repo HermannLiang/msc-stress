@@ -26,6 +26,22 @@ for class_set = 1:6
 
 [datamat,labelvec,subvec] = celldata2mat(feat_std,cate_feat);
 
+for i = 1:length(labelvec)
+    switch labelvec(i)
+        case 'baseline'
+            label_idx(i) = 1;
+        case 'preparation'
+            label_idx(i) = 2;
+        case 'speech'
+            label_idx(i) = 3;
+        case 'math'
+            label_idx(i) = 4;
+        case 'recovery'
+            label_idx(i) = 5;
+    end
+end
+save('datafiles.mat','datamat','label_idx','subvec');
+
 % class_set = 6;
 switch class_set
     case 1
@@ -67,10 +83,12 @@ switch class_set
 end
 feat_m= datamat(:,~isundefined(idx_m));
 cate_m = labelvec(:,~isundefined(idx_m));
+label_idx_short = label_idx(:,~isundefined(idx_m));
 cate_m = removecats(cate_m);
 countcats(cate_m)
 categories(cate_m)
 subjec_m = subvec(:,~isundefined(idx_m));
+save('datafiles.mat','feat_m','label_idx_short','subjec_m');
 
 total = numel(feat); % total subject in the dataset
 no_train = 12;
